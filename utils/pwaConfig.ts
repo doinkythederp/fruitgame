@@ -32,6 +32,12 @@ export const manifest: Partial<ManifestOptions> = {
     display: "standalone",
     icons: [
         {
+            src: "/fruitgame/maskable-640x640.png",
+            sizes: "640x640",
+            type: "image/png",
+            purpose: "maskable",
+        },
+        {
             src: "/fruitgame/android-chrome-192x192.png",
             sizes: "192x192",
             type: "image/png",
@@ -40,6 +46,7 @@ export const manifest: Partial<ManifestOptions> = {
             src: "/fruitgame/android-chrome-512x512.png",
             sizes: "512x512",
             type: "image/png",
+            purpose: "any",
         },
     ],
     scope: "/fruitgame/",
