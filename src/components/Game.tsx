@@ -13,7 +13,11 @@ const boardWidth = 5;
 const boardHeight = 5;
 
 function randomFruit() {
-    return fruitList[Math.floor(Math.random() * fruitList.length)];
+    if (import.meta.env.SSR) {
+        return fruitList[2];
+    } else {
+        return fruitList[Math.floor(Math.random() * fruitList.length)];
+    }
 }
 
 function createBoard() {
@@ -61,7 +65,7 @@ function itemClicked(x: number, y: number) {
             console.debug(
                 `[${belowY}][${nx}] ${belowFruit.value} = [${
                     belowY - 1
-                }][${nx}] ${aboveFruit}`,
+                }][${nx}] ${aboveFruit}`
             );
             belowFruit.value = aboveFruit;
             belowY -= 1;
