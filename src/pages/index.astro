@@ -3,7 +3,7 @@ import Game from "../components/Game.tsx";
 import { SEO } from "astro-seo";
 import "modern-normalize/modern-normalize.css";
 import "../main.css";
-import { seoConfig } from "../../utils/pwaConfig.ts";
+import { seoConfig, manifest } from "../../utils/pwaConfig.ts";
 
 const title = "fruit game";
 const description = "";
@@ -34,6 +34,7 @@ const ogTitle = "";
         <link rel="manifest" href="/fruitgame/manifest.webmanifest" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="theme-color" content={manifest.theme_color} />
         <title>fruit game</title>
         <SEO
             title={title}
