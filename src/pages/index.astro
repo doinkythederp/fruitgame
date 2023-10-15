@@ -1,7 +1,8 @@
 ---
-import type { build } from "astro";
 import Game from "../components/Game.tsx";
+import Help from "../components/Help.tsx";
 import "modern-normalize/modern-normalize.css";
+import "../main.css";
 ---
 
 <html lang="en">
@@ -27,9 +28,10 @@ import "modern-normalize/modern-normalize.css";
         <link rel="manifest" href="/fruitgame/site.webmanifest" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>fruitgame</title>
+        <title>fruit game</title>
     </head>
     <body>
+        <h1>fruit game</h1>
         <Game client:load />
     </body>
 </html>

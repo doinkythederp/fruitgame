@@ -1,0 +1,31 @@
+html,
+body {
+    height: 100%;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    user-select: none;
+}
+
+button.item {
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 25%;
+    margin: 0.2rem;
+    padding: 0;
+    border: none;
+    text-align: center;
+}
+
+button.item:active {
+    scale: 0.9;
+}
+
+table {
+    border-spacing: 0;
+}

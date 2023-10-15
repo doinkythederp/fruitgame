@@ -101,7 +101,7 @@ function Row(props: { row: Signal<string>[]; y: number }) {
 function Item(props: { fruit: Signal<string>; x: number; y: number }) {
     const { fruit, x, y } = props;
     return (
-        <button type="button" onClick={() => itemClicked(x, y)}>
+        <button type="button" onClick={() => itemClicked(x, y)} class="item">
             {fruit}
         </button>
     );
