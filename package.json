@@ -15,8 +15,10 @@
         "@divriots/jampack": "^0.21.1",
         "@preact/signals": "^1.2.1",
         "astro": "^3.3.0",
+        "astro-seo": "^0.8.0",
         "modern-normalize": "^2.0.0",
-        "preact": "^10.6.5"
+        "preact": "^10.6.5",
+        "vite-plugin-pwa": "^0.16.5"
     },
     "packageManager": "pnpm@8.9.0+sha256.8f5264ad1d100da11a6add6bb8a94c6f1e913f9e9261b2a551fabefad2ec0fec"
 }

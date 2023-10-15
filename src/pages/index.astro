@@ -1,7 +1,14 @@
 ---
 import Game from "../components/Game.tsx";
+import { SEO } from "astro-seo";
 import "modern-normalize/modern-normalize.css";
 import "../main.css";
+import { seoConfig } from "../../utils/pwaConfig.ts";
+
+const title = "fruit game";
+const description = "";
+const disableIndexing = false;
+const ogTitle = "";
 ---
 
 <html lang="en">
@@ -24,10 +31,34 @@ import "../main.css";
             sizes="16x16"
             href="/fruitgame/favicon-16x16.png"
         />
-        <link rel="manifest" href="/fruitgame/site.webmanifest" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>fruit game</title>
+        <SEO
+            title={title}
+            description={seoConfig.description || description}
+            noindex={disableIndexing}
+            nofollow={disableIndexing}
+            openGraph={{
+                basic: {
+                    title: ogTitle || title,
+                    type: "website",
+                    image: seoConfig.image.url,
+                },
+                image: {
+                    width: seoConfig.image.width,
+                    height: seoConfig.image.height,
+                    alt: seoConfig.image.alt,
+                },
+                optional: {
+                    siteName: seoConfig.siteName,
+                    description: seoConfig.description || description,
+                },
+            }}
+            twitter={{
+                card: seoConfig.twitter.card,
+            }}
+        />
     </head>
     <body>
         <h1>fruit game</h1>
