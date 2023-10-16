@@ -1,5 +1,6 @@
 ---
 import Game from "../components/Game.tsx";
+import Help from "../components/Help.tsx";
 import { SEO } from "astro-seo";
 import "modern-normalize/modern-normalize.css";
 import "../main.css";
@@ -65,5 +66,6 @@ const ogTitle = "";
     <body>
         <h1>fruit game</h1>
         <Game client:load />
+        <Help client:load />
     </body>
 </html>
