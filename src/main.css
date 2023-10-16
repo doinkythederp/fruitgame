@@ -8,7 +8,6 @@ body {
     justify-content: center;
     flex-direction: column;
     background-color: #f5f5f5;
-    user-select: none;
 }
 
 button.item {
@@ -22,10 +21,28 @@ button.item {
     text-align: center;
 }
 
+h1,
+button,
+strong {
+    user-select: none;
+}
+
 button.item:active {
     scale: 0.9;
 }
 
 table {
     border-spacing: 0;
+}
+
+.item.rare {
+    background-color: #9c8ddf;
+}
+
+.item.legendary {
+    background-color: #e29d91;
+}
+
+.score {
+    font-size: large;
 }

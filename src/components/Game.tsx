@@ -67,6 +67,7 @@ function itemClicked(x: number, y: number) {
                     belowY - 1
                 }][${nx}] ${aboveFruit}`
             );
+            score.value += scores.get(belowFruit.value) ?? 0;
             belowFruit.value = aboveFruit;
             belowY -= 1;
         }
@@ -74,14 +75,21 @@ function itemClicked(x: number, y: number) {
 }
 
 const board = createBoard();
+const score = signal(0);
+
 export default function Game() {
-    console.log(board);
     return (
-        <table>
-            {board.map((row, y) => (
-                <Row row={row} y={y} />
-            ))}
-        </table>
+        <>
+            <table>
+                {board.map((row, y) => (
+                    <Row row={row} y={y} />
+                ))}
+            </table>
+            <p class="score">
+                <strong>Score: </strong>
+                {score}
+            </p>
+        </>
     );
 }
 
@@ -100,8 +108,19 @@ function Row(props: { row: Signal<string>[]; y: number }) {
 
 function Item(props: { fruit: Signal<string>; x: number; y: number }) {
     const { fruit, x, y } = props;
+    let classes = ["item"];
+    if (scores.get(fruit.value) === 4) {
+        classes.push("rare");
+    }
+    if (scores.get(fruit.value) === 5) {
+        classes.push("legendary");
+    }
     return (
-        <button type="button" onClick={() => itemClicked(x, y)} class="item">
+        <button
+            type="button"
+            onClick={() => itemClicked(x, y)}
+            class={classes.join(" ")}
+        >
             {fruit}
         </button>
     );
