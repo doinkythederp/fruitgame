@@ -17,7 +17,12 @@ export default function Help() {
                 </div>
                 <div>
                     <h3>Points</h3>
-                    <p>Some fruit are worth more points than others.</p>
+                    <p>
+                        Some fruit are worth more points than others. If it has
+                        a colorful background, it's worth a lot! Also, if you
+                        pop a lot of fruits at once, you can get a multiplier
+                        bonus.
+                    </p>
                 </div>
             </div>
             <button

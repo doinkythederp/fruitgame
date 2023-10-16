@@ -56,8 +56,12 @@ function itemClicked(x: number, y: number) {
         .sort(([x1, y1], [x2, y2]) => {
             return y1 - y2;
         });
+    let fruitsPopped = 0;
     for (const [nx, ny] of poppedCoords) {
         console.debug("popping", ny, nx);
+        score.value += scores.get(board[ny][nx].value) ?? 0;
+        fruitsPopped += 1;
+
         let belowY = ny;
         while (belowY >= 0) {
             const belowFruit = board[belowY][nx];
@@ -67,10 +71,13 @@ function itemClicked(x: number, y: number) {
                     belowY - 1
                 }][${nx}] ${aboveFruit}`
             );
-            score.value += scores.get(belowFruit.value) ?? 0;
             belowFruit.value = aboveFruit;
             belowY -= 1;
         }
+    }
+
+    if (fruitsPopped >= 5) {
+        score.value += fruitsPopped * 100;
     }
 }
 
