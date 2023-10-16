@@ -1,4 +1,5 @@
 import { Signal, signal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 
 const fruitList = "🍎 🥕 🍉 🍌 🥚".split(" ");
 const scores = new Map(fruitList.map((fruit, i) => [fruit, i + 1]));
@@ -83,6 +84,17 @@ function itemClicked(x: number, y: number) {
 
 const board = createBoard();
 const score = signal(0);
+const highScore = signal(Number(globalThis.localStorage?.getItem("highScore")));
+
+highScore.subscribe((highScore) => {
+    globalThis.localStorage?.setItem("highScore", String(highScore));
+});
+
+score.subscribe((score) => {
+    if (score > highScore.value) {
+        highScore.value = score;
+    }
+});
 
 export default function Game() {
     return (
@@ -94,7 +106,11 @@ export default function Game() {
             </table>
             <p class="score">
                 <strong>Score: </strong>
-                {score}
+                {score.value.toLocaleString()}
+            </p>
+            <p class="score">
+                <strong>Your High Score: </strong>
+                {score.value.toLocaleString()}
             </p>
         </>
     );
